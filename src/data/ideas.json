@@ -1,0 +1,28 @@
+[
+  {
+    "title": "AI Designer",
+    "tags": [
+      "AI",
+      "Design"
+    ],
+    "complexity": "medium"
+  },
+  {
+    "title": "Remote Feedback Tool",
+    "tags": [
+      "SaaS",
+      "HR",
+      "Remote"
+    ],
+    "complexity": "low"
+  },
+  {
+    "title": "Legal Templates Assistant",
+    "tags": [
+      "Legal",
+      "AI",
+      "Productivity"
+    ],
+    "complexity": "high"
+  }
+]

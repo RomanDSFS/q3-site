@@ -1,0 +1,22 @@
+[
+  {
+    "title": "FinMate",
+    "status": "in-progress",
+    "description": "AI assistant for personal finance management."
+  },
+  {
+    "title": "Chat4Legal",
+    "status": "acquired",
+    "description": "Chatbot for medium businesses."
+  },
+  {
+    "title": "LegalBot",
+    "status": "idea",
+    "description": "A legal chatbot for small businesses."
+  },
+  {
+    "title": "EduChain",
+    "status": "launched",
+    "description": "A micro-certificate platform on the blockchain."
+  }
+]
