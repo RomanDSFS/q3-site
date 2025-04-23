@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Q3 — Фабрика стартапов
 
-## Getting Started
+🚀 Проект статического сайта для представления инициатив, проектов и команды фабрики стартапов **Q3**. Построен на Next.js 15 (App Router) и развёртывается через GitHub Pages.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📦 Структура проекта
+
+```
+q3_54/
+├── .github/                      # CI/CD конфигурация
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions: деплой на GitHub Pages
+├── .next/                        # 🛠️ Папка сборки (автогенерируется)
+├── node_modules/                # 📦 Установленные зависимости
+├── public/                      # Публичные ассеты (favicon, svg, иконки)
+├── src/
+│   ├── app/                     # Next.js App Router (маршруты и layout'ы)
+│   │   ├── about/page.tsx       # Страница "О нас"
+│   │   ├── contact/page.tsx     # Контакты
+│   │   ├── ideas/page.tsx       # Идеи
+│   │   ├── projects/page.tsx    # Проекты
+│   │   ├── layout.tsx           # Глобальный layout
+│   │   ├── page.tsx             # Главная страница
+│   │   └── globals.css          # Tailwind CSS + глобальные стили
+│   ├── components/              # UI-компоненты (Header, Cards, MotionWrapper)
+│   ├── data/                    # Статические JSON-данные
+│   └── types/                   # Типы TypeScript
+├── next.config.ts               # Конфигурация Next.js (export, basePath)
+├── package.json                 # Скрипты и зависимости
+├── tsconfig.json                # TypeScript-конфигурация
+├── postcss.config.mjs           # Tailwind/PostCSS
+├── eslint.config.mjs            # ESLint
+├── .gitignore
+└── README.md                    # Описание текущей архитектуры
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Используемый стек
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 15** — App Router + `next export`
+- **TypeScript** — строгая типизация
+- **Tailwind CSS 4** — быстрая и мощная стилизация
+- **Framer Motion** — анимации
+- **GitHub Actions + gh-pages** — CI/CD деплой
+- **GitHub Pages** — хостинг для сайта
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Как запустить локально
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Открой `http://localhost:3000`
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📤 Как собрать и задеплоить
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build
+npm run export
+```
+
+→ Сайт появится в `out/`  
+→ Автоматический деплой через GitHub Actions
+
+---
+
+## 🌐 Деплой
+
+После коммита в `main` ветку:
+- GitHub Actions запускает сборку и экспорт
+- Создаётся `.nojekyll`
+- Заливается в ветку `gh-pages`
+- Доступно по адресу: `https://romandsfs.github.io/q3-site/`
+
+---
+
+## 📌 План расширения
+
+- [ ] Блог и статьи через Markdown или CMS
+- [ ] Система предложений / форм
+- [ ] Интеграция с Notion API или Contentlayer
+- [ ] OpenGraph, SEO и sitemap.xml
+
+---
+
+© Q3 Labs. Создаём, запускаем и валидируем идеи.
+__________________________________________________________________
+
+# Q3 — Startup Factory
+
+🚀 This is a static site project for showcasing initiatives, ideas, and the team behind the **Q3 Startup Factory**. Built with Next.js 15 (App Router), deployed via GitHub Pages.
+
+---
+
+## 📦 Project Structure
+
+```
+q3_54/
+├── .github/                      # CI/CD config
+│   └── workflows/
+│       └── deploy.yml            # GitHub Actions: deploy to GitHub Pages
+├── .next/                        # ⚙️ Build output (autogenerated)
+├── node_modules/                # 📦 Installed packages
+├── public/                      # Public assets (svg, favicon, fonts)
+├── src/
+│   ├── app/                     # App Router pages and layouts
+│   │   ├── about/page.tsx       # About page
+│   │   ├── contact/page.tsx     # Contact page
+│   │   ├── ideas/page.tsx       # Startup ideas
+│   │   ├── projects/page.tsx    # Projects overview
+│   │   ├── layout.tsx           # Global layout (Header + Footer)
+│   │   ├── page.tsx             # Homepage
+│   │   └── globals.css          # Tailwind + global styles
+│   ├── components/              # Reusable UI components
+│   ├── data/                    # Static JSON data
+│   └── types/                   # TypeScript types
+├── next.config.ts               # Next.js configuration (for GitHub Pages)
+├── package.json                 # Scripts and dependencies
+├── tsconfig.json                # TypeScript configuration
+├── postcss.config.mjs           # Tailwind/PostCSS setup
+├── eslint.config.mjs            # ESLint configuration
+├── .gitignore
+└── README.md                    # Project documentation
+```
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js 15** — App Router + `next export`
+- **TypeScript** — strict typing
+- **Tailwind CSS 4** — utility-first styling
+- **Framer Motion** — animations
+- **GitHub Actions + gh-pages** — CI/CD deployment
+- **GitHub Pages** — static site hosting
+
+---
+
+## 🚀 Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+Then open: `http://localhost:3000`
+
+---
+
+## 📤 Build and Export
+
+```bash
+npm run build
+npm run export
+```
+
+→ Output goes to `out/`  
+→ Automatically deployed via GitHub Actions
+
+---
+
+## 🌐 Deployment (GitHub Pages)
+
+On every commit to `main`:
+- GitHub Actions builds and exports the app
+- Creates `.nojekyll` for GitHub Pages compatibility
+- Pushes output to `gh-pages` branch
+- Available at: `https://romandsfs.github.io/q3-site/`
+
+---
+
+## 🧩 Planned Features
+
+- [ ] Blog (via Markdown or Headless CMS)
+- [ ] Idea submission form
+- [ ] Notion API or Contentlayer integration
+- [ ] SEO + OpenGraph + sitemap.xml
+
+---
+
+© Q3 Labs. Building and validating ideas at the intersection of tech and market.
+
+
