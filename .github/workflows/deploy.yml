@@ -2,16 +2,16 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main]  # 🚀 Запуск при пуше в main
 
 permissions:
-  contents: write  # ✅ ОБЯЗАТЕЛЬНО для публикации в gh-pages
+  contents: write     # ✅ Обязательно — позволяет пушить в gh-pages
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_ENV: GH_PAGES
+      DEPLOY_ENV: GH_PAGES  # Используется в next.config.ts
 
     steps:
       - name: Checkout repository
@@ -29,13 +29,13 @@ jobs:
         run: |
           npm run build
           npm run export
-          echo > out/.nojekyll
-          - name: Deploy to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./out
-            publish_branch: gh-pages       # ✅ Явно указываем ветку
-            user_name: "github-actions[bot]"
-            user_email: "github-actions[bot]@users.noreply.github.com"
-        
+          echo > out/.nojekyll  # 📁 Обязательный файл для отключения Jekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages         # ✅ Указывает ветку для публикации
+          user_name: github-actions[bot]   # 🧑 CI-автор
+          user_email: github-actions[bot]@users.noreply.github.com
